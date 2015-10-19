@@ -1,0 +1,39 @@
+CREATE DATABASE url_shortener_chip_morris;
+
+CREATE TABLE urls (
+  id SERIAL PRIMARY KEY,
+  original_url VARCHAR NOT NULL,
+  count INT DEFAULT 0
+);
+
+-- SELECT * FROM urls;
+
+-- insert 5 rows of data into the 'urls' table
+-- give each one a different original_url.
+-- give each one a different count.
+INSERT INTO urls (original_url, count) VALUES
+  ('www.chip.com', 3),
+  ('www.dom.com', 43),
+  ('www.luis.com', 49),
+  ('www.johnny.com', 55),
+  ('www.ryan.com', 32);
+
+-- display all of the rows in the urls table with all of the columns
+SELECT * FROM urls;
+
+-- display all of the rows in the urls table with only the original_url column
+SELECT original_url FROM urls;
+
+-- display one row from the urls table with a specific original_url
+SELECT * FROM urls WHERE original_url = 'www.chip.com';
+
+-- display one row from the table with a specific id
+SELECT * FROM urls WHERE id = 3;
+
+-- update one of the rows with a specific id to have a new count
+UPDATE urls SET count = 4 WHERE id = 2;
+
+-- delete one row that matches an original_url
+DELETE FROM urls WHERE original_url = 'www.ryan.com';
+
+DROP TABLE urls;
